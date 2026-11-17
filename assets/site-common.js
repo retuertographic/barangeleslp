@@ -262,4 +262,53 @@
 
   setLanguage(currentLang);
   loadMenu();
+
+  /* ===========================================================
+     POP-UP POKE — solo los martes (hora de Canarias)
+     Para quitarlo, poner POKE_TUESDAYS = false.
+     Para verlo cualquier día: añadir ?poke a la URL.
+     =========================================================== */
+  const POKE_TUESDAYS = true;
+
+  const pokeModal = document.getElementById('pokeModal');
+  if (pokeModal) {
+    const forced = new URLSearchParams(location.search).has('poke');
+    const now = new Date();
+    let weekday, today;
+    try {
+      const fmt = opts => new Intl.DateTimeFormat('en-CA', Object.assign({ timeZone: 'Atlantic/Canary' }, opts)).format(now);
+      weekday = fmt({ weekday: 'short' });
+      today = fmt({ year: 'numeric', month: '2-digit', day: '2-digit' });
+    } catch (err) {
+      weekday = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'][now.getDay()];
+      today = now.toDateString();
+    }
+
+    /* Se enseña una vez por martes; si lo cierran, no vuelve a salir ese día. */
+    const SEEN_KEY = 'angeles_poke_seen';
+    let seen = null;
+    try { seen = localStorage.getItem(SEEN_KEY); } catch (err) {}
+
+    if (forced || (POKE_TUESDAYS && weekday === 'Tue' && seen !== today)) {
+      const closePoke = () => {
+        pokeModal.classList.remove('open');
+        setTimeout(() => { pokeModal.hidden = true; }, 300);
+        document.removeEventListener('keydown', onKey);
+        try { localStorage.setItem(SEEN_KEY, today); } catch (err) {}
+      };
+      const onKey = e => { if (e.key === 'Escape') closePoke(); };
+
+      document.getElementById('pokeClose').addEventListener('click', closePoke);
+      document.getElementById('pokeLater').addEventListener('click', closePoke);
+      pokeModal.querySelector('.promo-actions a').addEventListener('click', closePoke);
+      pokeModal.addEventListener('click', e => { if (e.target === pokeModal) closePoke(); });
+      document.addEventListener('keydown', onKey);
+
+      setTimeout(() => {
+        pokeModal.hidden = false;
+        requestAnimationFrame(() => requestAnimationFrame(() => pokeModal.classList.add('open')));
+        document.getElementById('pokeClose').focus({ preventScroll: true });
+      }, forced ? 300 : 1500);
+    }
+  }
 })();

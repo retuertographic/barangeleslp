@@ -472,3 +472,57 @@ footer a.call:hover{background:var(--red-light);}
 /* ---------- utilidades ---------- */
 .center{text-align:center;}
 .mt-0{margin-top:0;}
+
+/* ===========================================================
+   POP-UP PROMO (poke de los martes)
+   =========================================================== */
+.promo-modal{
+  position:fixed;inset:0;z-index:1250;
+  background:rgba(6,6,6,.7);backdrop-filter:blur(3px);
+  display:flex;align-items:center;justify-content:center;padding:20px;
+  opacity:0;transition:opacity .3s ease;
+}
+.promo-modal[hidden]{display:none;}
+.promo-modal.open{opacity:1;}
+.promo-box{
+  position:relative;background:var(--paper);border-radius:22px;
+  width:min(440px,100%);max-height:92vh;overflow-y:auto;
+  box-shadow:0 30px 80px rgba(0,0,0,.45);
+  transform:translateY(16px) scale(.97);transition:transform .35s ease;
+}
+.promo-modal.open .promo-box{transform:none;}
+.promo-close{
+  position:absolute;top:12px;right:12px;z-index:2;
+  width:38px;height:38px;border-radius:50%;border:none;cursor:pointer;
+  background:rgba(255,253,248,.92);color:var(--ink);font-size:1.6rem;line-height:1;
+  box-shadow:0 4px 14px rgba(0,0,0,.18);
+}
+.promo-close:hover{background:var(--red);color:#fff;}
+.promo-media{position:relative;margin:0;}
+.promo-media img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;object-position:50% 40%;}
+.promo-tag{
+  position:absolute;left:16px;bottom:-14px;
+  background:var(--red);color:#fff;border-radius:30px;padding:7px 16px;
+  font-size:.78rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  box-shadow:0 10px 24px rgba(214,40,40,.4);
+}
+.promo-body{padding:30px 24px 24px;}
+.promo-body h3{
+  font-family:'Oswald',sans-serif;text-transform:uppercase;font-weight:600;
+  font-size:2rem;line-height:1.05;margin-bottom:12px;
+}
+.promo-body h3 .script{text-transform:none;font-weight:400;color:var(--red);font-size:1.7rem;}
+.promo-body p{font-size:.92rem;line-height:1.65;color:var(--text-soft);margin-bottom:10px;}
+.promo-body p:first-of-type{color:var(--ink);font-weight:500;}
+.promo-detail{font-size:.84rem!important;border-left:3px solid var(--red);padding-left:12px;}
+.promo-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
+.promo-actions .btn{padding:12px 22px;font-size:.88rem;flex:1 1 auto;text-align:center;}
+@media(max-width:520px){
+  .promo-media img{aspect-ratio:16/10;}
+  .promo-body{padding:26px 20px 20px;}
+  .promo-body h3{font-size:1.7rem;margin-bottom:10px;}
+  .promo-body h3 .script{font-size:1.45rem;}
+  .promo-body p{font-size:.86rem;line-height:1.55;margin-bottom:8px;}
+  .promo-actions{margin-top:14px;}
+}
+@media(prefers-reduced-motion:reduce){.promo-modal,.promo-box{transition:none;}}

@@ -71,6 +71,16 @@ Detalles:
   Se pone por idioma para respetar la coma en ES/DE y el punto en EN.
 - El orden de `categories` es el orden de las pestañas.
 
+## Pop-up de los martes (poke)
+
+Los martes (hora de Canarias) sale un pop-up anunciando el poke. Cada visitante lo ve
+una vez por martes; si lo cierra, no le vuelve a salir ese día.
+
+- **Quitarlo:** en `assets/site-common.js`, poner `const POKE_TUESDAYS = false;`.
+- **Verlo cualquier día** para revisarlo: añadir `?poke` a la URL.
+- Textos en `assets/i18n.js` (claves `poke_*`), maquetación en `partials/footer.html`
+  y foto en `img/poke-bowl.jpg`.
+
 ## Pendiente
 
 - [ ] Sustituir `[TITULAR]` y `[NIF]` en `assets/i18n.js` (aviso legal, los tres idiomas).
