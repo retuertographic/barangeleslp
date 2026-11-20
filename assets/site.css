@@ -421,6 +421,14 @@ footer a.call{
   padding:11px 24px;font-size:.85rem;font-weight:600;
 }
 footer a.call:hover{background:var(--red-light);}
+footer .wrap.credit{
+  display:block;margin-top:26px;padding-top:18px;
+  border-top:1px solid rgba(246,241,231,.1);text-align:center;
+}
+.credit p{font-size:.74rem;line-height:1.7;color:rgba(246,241,231,.5);}
+.credit .nw{white-space:nowrap;}
+.credit a{color:rgba(246,241,231,.82);font-weight:600;}
+.credit a:hover{color:var(--red-light);text-decoration:underline;}
 
 .to-top{
   position:fixed;right:22px;bottom:22px;z-index:800;
