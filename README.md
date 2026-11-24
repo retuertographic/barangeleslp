@@ -81,6 +81,16 @@ una vez por martes; si lo cierra, no le vuelve a salir ese día.
 - Textos en `assets/i18n.js` (claves `poke_*`), maquetación en `partials/footer.html`
   y foto en `img/poke-bowl.jpg`.
 
+## Menú poke (sección `#poke`)
+
+Sección entre Especialidades y Carta, con enlace "Poke" en el menú. Precio 13,80 € con
+bebida y café; solo martes y con reserva previa. El botón de WhatsApp abre el chat con el
+677 35 09 13 y un mensaje ya escrito ("Estoy interesado/a en un menú poke y quiero
+hacerte un pedido para el próximo martes"), traducido según el idioma de la web.
+
+- Precio: en `index.html` (`.poke-price`) y en `poke_p1` de `assets/i18n.js`.
+- Mensaje de WhatsApp: claves `pk_wa_href` de `assets/i18n.js` (texto codificado para URL).
+
 ## Pendiente
 
 - [ ] Sustituir `[TITULAR]` y `[NIF]` en `assets/i18n.js` (aviso legal, los tres idiomas).

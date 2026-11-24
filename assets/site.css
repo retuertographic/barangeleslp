@@ -534,3 +534,45 @@ footer .wrap.credit{
   .promo-actions{margin-top:14px;}
 }
 @media(prefers-reduced-motion:reduce){.promo-modal,.promo-box{transition:none;}}
+
+/* ===========================================================
+   MENÚ POKE (martes)
+   =========================================================== */
+.poke-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.poke-media{position:relative;padding:0 0 40px 0;}
+.poke-main{width:86%;height:auto;aspect-ratio:1/1;object-fit:cover;border-radius:22px;box-shadow:0 24px 60px rgba(0,0,0,.2);}
+.poke-second{
+  position:absolute;right:0;bottom:0;width:42%;height:auto;aspect-ratio:3/4;object-fit:cover;
+  border-radius:18px;border:6px solid var(--paper);box-shadow:0 20px 46px rgba(0,0,0,.25);
+}
+.poke-price{
+  position:absolute;left:-18px;top:22px;
+  background:var(--red);color:#fff;border-radius:18px;padding:16px 22px;
+  box-shadow:0 18px 40px rgba(214,40,40,.4);transform:rotate(-4deg);
+}
+.poke-price strong{display:block;font-family:'Oswald',sans-serif;font-size:2.3rem;line-height:1;}
+.poke-price span{display:block;font-size:.78rem;font-weight:600;margin-top:6px;letter-spacing:.02em;}
+.poke-includes{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 0;}
+.poke-includes li{
+  background:var(--cream);border:1px solid var(--line);border-radius:30px;
+  padding:8px 16px;font-size:.86rem;font-weight:600;
+}
+.poke-includes li+li::before{content:'+ ';color:var(--red);}
+.poke-notice{
+  margin-top:24px;background:var(--ink);color:var(--cream);border-radius:16px;
+  padding:18px 22px;border-left:5px solid var(--red);
+}
+.poke-notice strong{display:block;font-family:'Oswald',sans-serif;text-transform:uppercase;font-weight:500;letter-spacing:.03em;font-size:1.05rem;margin-bottom:4px;}
+.poke-notice p{font-size:.9rem;line-height:1.6;color:rgba(246,241,231,.8);}
+.poke-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px;}
+.btn.wa{background:#25D366;box-shadow:0 10px 24px rgba(37,211,102,.32);}
+.btn.wa:hover{background:#1EBE5A;box-shadow:0 14px 30px rgba(37,211,102,.42);}
+@media(max-width:880px){
+  .poke-grid{grid-template-columns:1fr;gap:40px;}
+  .poke-media{max-width:520px;margin:0 auto;width:100%;}
+  .poke-price{left:8px;top:12px;}
+}
+@media(max-width:480px){
+  .poke-actions .btn{flex:1 1 100%;text-align:center;}
+  .poke-price strong{font-size:1.9rem;}
+}
