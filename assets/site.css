@@ -576,3 +576,4 @@ footer .wrap.credit{
   .poke-actions .btn{flex:1 1 100%;text-align:center;}
   .poke-price strong{font-size:1.9rem;}
 }
+.lead a[href="#poke"]{color:var(--red);font-weight:600;text-decoration:underline;text-underline-offset:3px;}
